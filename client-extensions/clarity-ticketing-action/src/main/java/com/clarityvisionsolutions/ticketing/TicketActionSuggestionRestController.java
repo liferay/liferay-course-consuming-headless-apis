@@ -13,6 +13,7 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -46,6 +47,8 @@ public class TicketActionSuggestionRestController extends BaseRestController {
 		).defaultHeader(
 			HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE
 		).defaultHeader(
+			HttpHeaders.AUTHORIZATION, "Bearer " + jwt.getTokenValue()
+		).defaultHeader(
 			HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE
 		).build();
 
@@ -61,13 +64,13 @@ public class TicketActionSuggestionRestController extends BaseRestController {
 		webClient.patch().uri(uri).bodyValue(
 			suggestion.toString()).exchangeToMono(
 			clientResponse -> {
-				HttpStatus httpStatus = clientResponse.statusCode();
+				HttpStatusCode httpStatus = clientResponse.statusCode();
 
 				if (httpStatus.is2xxSuccessful()) {
 					return clientResponse.bodyToMono(String.class);
 				}
 				else if (httpStatus.is4xxClientError()) {
-					return Mono.just(httpStatus.getReasonPhrase());
+					return Mono.just("Unable to connect to service");
 				}
 
 				Mono<WebClientResponseException> mono =
