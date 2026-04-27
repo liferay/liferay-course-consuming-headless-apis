@@ -1,0 +1,48 @@
+{
+  "externalReferenceCode": "TICKET_2",
+  "id": 64529,
+  "subject": "Do you have any retail stores?",
+  "description": "No, we don’t have any retail stores because we make the digital experience even better.",
+  "priority": {
+    "key": "critical",
+    "name": "Critical"
+  },
+  "type": {
+    "key": "other",
+    "name": "Other"
+  },
+  "resolution": {
+    "key": "fixed",
+    "name": "Fixed"
+  },
+  "r_accountToTickets_accountEntryId": 54645,
+  "ticketStatus": {
+      "key": "closed",
+      "name": "Closed"
+  },
+  "r_userToTickets_userId": 55277
+},
+{
+  "externalReferenceCode": "TICKET_5",
+  "id": 64535,
+  "subject": "Is there any expected promo for this summer?",
+  "description": "I need to adquire another pair of glasses. For existing customers, are you thinking on creating a specific promotion?",
+  "priority": {
+    "key": "minor",
+    "name": "Minor"
+  },
+  "type": {
+    "key": "other",
+    "name": "Other"
+  },
+  "resolution": {
+    "key": "fixed",
+    "name": "Fixed"
+  },
+  "r_accountToTickets_accountEntryId": 54651,
+  "ticketStatus": {
+      "key": "closed",
+      "name": "Closed"
+  },
+  "r_userToTickets_userId": 55293
+}
